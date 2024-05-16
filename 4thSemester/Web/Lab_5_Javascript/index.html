@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table Sorting</title>
+<style>
+  th {
+    cursor: pointer;
+  }
+  .asc::after {
+    content: " \25B2"; 
+  }
+  .desc::after {
+    content: " \25BC"; 
+  }
+</style>
+</head>
+<body>
+
+<table id="sortable-table">
+  <thead>
+    <tr>
+      <th onclick="sortTable(0)" data-sort="none">Column 1</th>
+      <th onclick="sortTable(1)" data-sort="none">Column 2</th>
+      <th onclick="sortTable(2)" data-sort="none">Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3</td>
+      <td>6</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+<button onclick="restoreTable()">Restore</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
