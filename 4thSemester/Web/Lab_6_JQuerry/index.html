@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modal Form</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<form id="mainForm">
+  <label for="input1">Input 1:</label>
+  <input type="text" id="input1" name="input1"><br>
+  <label for="input2">Input 2:</label>
+  <input type="text" id="input2" name="input2"><br>
+  <label for="input3">Input 3:</label>
+  <input type="text" id="input3" name="input3"><br>
+  <label for="input4">Input 4:</label>
+  <input type="text" id="input4" name="input4"><br>
+  <label for="input5">Input 5:</label>
+  <input type="text" id="input5" name="input5"><br>
+  <button id="openModalBtn">Open Modal</button>
+</form>
+
+<div id="overlay"></div>
+<div id="modal">
+  <button id="closeModalBtnX">X</button> <!-- Close button (X) -->
+
+  <form id="modalForm">
+    <label for="modalInput1">Modal Input 1:</label>
+    <input type="text" id="modalInput1" name="modalInput1"><br>
+    <label for="modalInput2">Modal Input 2:</label>
+    <input type="text" id="modalInput2" name="modalInput2"><br>
+    <label for="modalInput3">Modal Input 3:</label>
+    <input type="text" id="modalInput3" name="modalInput3"><br>
+    <label for="modalInput4">Modal Input 4:</label>
+    <input type="text" id="modalInput4" name="modalInput4"><br>
+    <button id="closeModalBtn">Add to Main Form</button>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
