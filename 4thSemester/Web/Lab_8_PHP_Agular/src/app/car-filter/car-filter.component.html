@@ -1,0 +1,38 @@
+<section class="browsing">
+    <label>
+      <select name="Color Filter" [(ngModel)]="selectedOption" (change)="getFilteredCarsByColor()">
+        <option class="color-filter" selected>Choose color</option>
+        <option *ngFor="let color of colors">
+          {{color}}
+        </option>
+      </select>
+    </label>
+    <br><br>
+    <table>
+      <thead>
+        <th>ID</th>
+        <th>Model</th>
+        <th>Engine Power</th>
+        <th>Fuel</th>
+        <th>Price</th>
+        <th>Color</th>
+        <th>Age</th>
+        <th>History</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of filteredCars">
+          <td>{{car.id}}</td>
+          <td>{{car.model}}</td>
+          <td>{{car.enginePower}}</td>
+          <td>{{car.fuel}}</td>
+          <td>{{car.price}}</td>
+          <td>{{car.color}}</td>
+          <td>{{car.age}}</td>
+          <td>{{car.history}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="prevOption"> Previous car filter with color: {{prevOption}} </p>
+    <br>
+  </section>
+  

@@ -1,0 +1,80 @@
+<div class="crud">
+    <section style="float: left; display: inline;">
+      <br>
+      <table class="all-cars">
+        <thead>
+          <th>ID</th>
+          <th>MODEL</th>
+          <th>ENGINE POWER</th>
+          <th>FUEL</th>
+          <th>PRICE</th>
+          <th>COLOR</th>
+          <th>AGE</th>
+          <th>HISTORY</th>
+          <th> </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td>{{car.id}}</td>
+            <td>{{car.model}}</td>
+            <td>{{car.enginePower}}</td>
+            <td>{{car.fuel}}</td>
+            <td>{{car.price}}</td>
+            <td>{{car.color}}</td>
+            <td>{{car.age}}</td>
+            <td>{{car.history}}</td>
+            <td>
+              <button class='btnUpdate' type='button' (click)="onUpdate(car)">Update</button>
+              <button class='btnDelete' type='button' (click)="onDelete(car.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p> </p>
+      <br>
+    </section>
+  
+    <section id="add_form" style="float: left; display: block; padding-left: 50px; padding-top: 12px">
+      <form action="" method="get">
+
+        <input id="model1" type="text" #newModel placeholder="model" style="margin: 5px; width: 191px">
+        Model<br>
+        <input id="enginePower1" type="text" #newEnginePower placeholder="enginePower" style="margin: 5px; width: 191px">
+        Engine Power<br>
+        <input id="fuel1" type="text" #newFuel placeholder="fuel" style="margin: 5px; width: 191px">
+        Fuel<br>
+        <input id="price1" type="text" #newPrice placeholder="price" style="margin: 5px; width: 191px">
+        Price<br>
+        <input id="color1" type="text" #newColor placeholder="color" style="margin: 5px; width: 191px">
+        Color<br>
+        <input id="age1" type="text" #newAge placeholder="age" style="margin: 5px; width: 191px">
+        Age<br>
+        <input id="history1" type="text" #newHistory placeholder="history" style="margin: 5px; width: 191px">
+        History<br>
+        <button id="submitAddBtn" style="margin-top: 10px" (click)="addCar(newModel,newEnginePower,newFuel,newPrice,newColor,newAge,newHistory)">
+          Add new car</button>
+      </form>
+    </section>
+  
+    <section id="update_form" style="float: left; display: none; padding-left: 50px; padding-top: 12px">
+      <form action="" method="get">
+
+        <input id="model2" type="text" #uModel placeholder="model" style="margin: 5px; width: 191px">
+        Model<br>
+        <input id="enginePower2" type="text" #uEnginePower placeholder="enginePower" style="margin: 5px; width: 191px">
+        Engine Power<br>
+        <input id="fuel2" type="text" #uFuel placeholder="fuel" style="margin: 5px; width: 191px">
+        Fuel<br>
+        <input id="price2" type="text" #uPrice placeholder="price" style="margin: 5px; width: 191px">
+        Price<br>
+        <input id="color2" type="text" #uColor placeholder="color" style="margin: 5px; width: 191px">
+        Color<br>
+        <input id="age2" type="text" #uAge placeholder="age" style="margin: 5px; width: 191px">
+        Age<br>
+        <input id="history2" type="text" #uHistory placeholder="history" style="margin: 5px; width: 191px">
+        History<br>
+        <button id="submitUpdateBtn" style="margin-top: 10px" (click)="updateCar(uModel,uEnginePower,uFuel,uPrice,uColor,uAge,uHistory)">
+          Update</button>
+      </form>
+    </section>
+</div>
