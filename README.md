@@ -2,28 +2,28 @@
 
 ## 1<sup>st</sup> Semester
 - Algebra
-- [ASC - Computer Systems Arhitecture](1st Semester/ASC - Computer Systems Arhitecture)
-- [Computational Logic](url1)
-- [FP - Fundamentals of Programming](url1)
+- [ASC - Computer Systems Arhitecture](1stSemester/ASC)
+- [Computational Logic](1stSemester/Logic)
+- [FP - Fundamentals of Programming](1stSemester/FP)
 - Mathematical Analysis
 
 ## 2<sup>nd</sup> Semester
 - Geometry
-- [Graph Algorithms](url1)
-- [OOP - Object Oriented Programming](url1)
-- [SD - Dynamical Systems](url1)
-- [SDA - Data Structures and Algorithms](url1)
+- [Graph Algorithms](2ndSemester/Graphs)
+- [OOP - Object Oriented Programming](2ndSemester/OOP)
+- [SD - Dynamical Systems](2ndSemester/SD)
+- [SDA - Data Structures and Algorithms](2ndSemester/SDA)
 
 ## 3<sup>rd</sup> Semester
-- [Computer Networks](url1)
-- [Databases](url1)
+- [Computer Networks](3rdSemester/Networks)
+- [Databases](3rdSemester/Databases)
 - [MAP - Advanced Methods of Programming](3rdSemester/MAP)
-- [PLF - Functional and Logical Programming](url1)
-- [Probabilities and Statistics](url1)
+- [PLF - Functional and Logical Programming](3rdSemester/PLF)
+- [Probabilities and Statistics](3rdSemester/ProbabilitiesAndStatistics)
 
 ## 4<sup>th</sup> Semester
-- [AI - Artificial Intelligence](url1)
-- [Database Management Systems](url1)
-- [ISS - Software Engineering](url1)
-- [MPP](url1)
-- [Web Programming](url1)
+- [AI - Artificial Intelligence](4thSemester/AI)
+- [Database Management Systems](4thSemester/Databases)
+- [ISS - Software Engineering](4thSemester/ISS)
+- [MPP](4thSemester/MPP)
+- [Web Programming](4thSemester/Web)
