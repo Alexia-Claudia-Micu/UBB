@@ -1,0 +1,10 @@
+drop table Review
+drop table Users
+drop table Ad
+drop table Service_Business
+drop table Servicee
+drop table Employee
+drop table Business
+drop table Department
+drop table Position
+drop table Person
