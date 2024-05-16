@@ -2,7 +2,7 @@
 
 ## 1<sup>st</sup> Semester
 - Algebra
-- [ASC - Computer Systems Arhitecture](1st%20Semester/ASC%20-%20Computer%20Systems%20Architecture)
+- [ASC - Computer Systems Arhitecture](1stSemester/ASC-ComputerSystemsArchitecture)
 - [Computational Logic](url1)
 - [FP - Fundamentals of Programming](url1)
 - Mathematical Analysis
