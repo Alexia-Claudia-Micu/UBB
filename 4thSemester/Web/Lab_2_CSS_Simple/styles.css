@@ -1,0 +1,112 @@
+.graph {
+  width: 430px;
+  height: 300px;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.y-axis {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: black;
+}
+
+.x-axis {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  right: 0;
+  height: 1px;
+  background-color: black;
+}
+
+.bars {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 50px;
+  margin: 0 5px;
+  position: absolute;
+  bottom: -290px; /* Align bars with the X-axis */
+}
+
+.bar-name{
+  position:absolute;
+  bottom:-15px;
+}
+
+.bar-height{
+  position:fixed;
+  left: 10px;?
+}
+
+.bar:nth-child(1) {
+  left: 30px; 
+}
+
+.bar:nth-child(2) {
+  left: 110px; 
+}
+
+.bar:nth-child(3) {
+  left: 190px;
+}
+
+.bar:nth-child(4) {
+  left: 270px; 
+}
+
+.bar:nth-child(5) {
+  left: 350px;
+}
+
+.menu {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  z-index: 999;
+}
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+}
+.menu li ul {
+  position: absolute;
+  bottom: calc(-(100% + 5px));
+  left: 50%;
+  transform: translateX(50%);
+  display: none;
+  background-color: #333;
+  padding: 10px 0;
+}
+.menu li:hover ul {
+  display: block;
+}
+.menu li ul li {
+  display: flex;
+  padding: 10px 20px;
+}
+.menu li ul li:hover {
+  background-color: #555;
+}
