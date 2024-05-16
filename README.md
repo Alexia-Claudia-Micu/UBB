@@ -17,7 +17,7 @@
 ## 3<sup>rd</sup> Semester
 - [Computer Networks](url1)
 - [Databases](url1)
-- [MAP - Advanced Methods of Programming](url1)
+- [MAP - Advanced Methods of Programming](3rdSemester/MAP)
 - [PLF - Functional and Logical Programming](url1)
 - [Probabilities and Statistics](url1)
 
