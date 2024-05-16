@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fireboy & Watergirl</title>
+        <link rel="stylesheet" href="cs.css">
+    </head>
+    <body>
+        <header>
+            <h1>Contents</h1>
+        <nav>
+            <ul>
+                <li><a href="#music">Theme Music<a></a></li>
+                <li><a href="#mainScreen">Main screen<a></a></li>
+                <li><a href="#playthrough">Game execution<a></a></li>
+                <li><a href="#facts">Details<a></a></li>
+                <li><a href="#drawing">Abstract drawing of the characters<a></a></li>
+                <li><a href="http://127.0.0.1:5500/new.html" target="_blank">New Page<a></a></li>
+                <br>
+            </ul>
+        </nav>
+        </header>
+
+        <main>
+            <section id="music">
+                <h2>Theme Song</h2>
+                <article>
+                    <p>
+                        This is the theme song of the game:
+                        <audio controls>
+                            <source src="themeSong.mpeg" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </p>
+                </article>
+                <hr>
+            </section>
+
+            <section id="mainScreen">
+                <h2>Main Screen</h2>
+                <div>
+                    This is the main screen of the game (recreated in Blender).
+                    <figure>
+                        <img src="screen.jpeg" alt="Screen" width="400" height="250">
+                        <figcaption>The complete mainscreen.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="bp.jpeg" alt="ScreenHalf" width="400" height="250">
+                        <figcaption>The mainscreen without writing, but with light beams</figcaption>
+                    </figure>
+                </div>
+                <hr>
+            </section>
+
+            <section id="playthrough">
+                <h2>Playthrough</h2>
+                <video width="400" height="300" controls>
+                    <source src="Rulaj.mp4" tyoe="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <hr>
+            </section>
+
+            <section id="facts">
+                <h2>Details</h2>
+                <table>
+                    <tr>
+                        <td><b>Genre:</b></td>
+                        <td>Puzzle-platform</td>
+                        <aside> (3d) </aside>
+                    </tr>
+                    <tr>
+                        <td><b>Developer:</b></td>
+                        <td>Oslo Albet</td>
+                    </tr>
+                    <tr>
+                        <td><b>Publisher:</b></td>
+                        <td>oslo Albet</td>
+                    </tr>
+                    <tr>
+                        <td><b>First Release:</b></td>
+                        <td>2009</td>
+                    </tr>
+                    <tr>
+                        <td><b>Latest Release:</b></td>
+                        <td>2021</td>
+                    </tr>
+                </table>
+                <hr>
+            </section>
+
+            <section id="drawing">
+                <h2>The game colours</h2>
+                <aside>(blue and red for the characters)</aside>
+                <svg width="200" height="200">
+                    <circle cx="50" cy="50" r="40" stroke="blue" stroke-width="2" fill="blue" />
+                    <circle cx="150" cy="50" r="40" stroke="red" stroke-width="2" fill="red" />
+                </svg>
+            </section>
+        </main>
+
+        <footer>
+            <p>@Watergirl & Fireboy</p>
+        </footer>
+    </body>
+</html>
