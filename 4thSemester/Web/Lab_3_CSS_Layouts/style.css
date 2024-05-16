@@ -1,0 +1,302 @@
+@font-face {
+    font-family: 'OracleSans-Light'; /* Specify a name for your font */
+    src: url('font/OracleSans-Light.woff2') format('woff2'), /* Specify the path to your font file */
+         url('font/OracleSans-Light.woff') format('woff'); /* You can include multiple file formats for better browser compatibility */
+    /* Add additional font formats (e.g., .ttf, .svg) as needed */
+  }
+.line {
+    position: relative;
+    top: -0.5vmin;
+    width: 110px;
+    height: 4px;
+    left: 15vmin;
+    background-color: green;
+}
+
+.topnav{
+    height: 16vmin;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: #3F3A36;
+    width: 100%;
+}
+.user{
+    float: left;
+    width: 36%;
+    height: 50%;
+    padding: 0;
+    margin: auto;
+}
+.icon{
+    top: 1vw;
+    bottom: 0;
+    left: 1.5vw;
+    right: 0;
+    position: absolute;
+    height: 39%;
+    width: 31%;
+    display: inline-block;
+}
+.menuIcon{
+    color: #FFFFFF;
+    top: 0.7vw;
+    bottom: 0;
+    left: 7vw;
+    right: 0;
+    position: absolute;
+    margin: auto;
+}
+.user{
+    position: absolute;
+    left: 120vmin;
+    margin: auto;
+    /*padding-right: 3%;*/
+}
+.searchIcon{
+    position: relative;
+    height: 23px;
+    top: 2.5vmin;
+    display: inline-block;
+}
+.flag{
+    position: relative;
+    top: -2vmin;
+    left: 8vmin;
+    height: 15px;
+    color: #FFFFFF;
+}
+.accounts{
+    position: relative;
+    top: -7.5vmin;
+    left: 16vmin;
+    width: 130px;
+
+    background-color: #11100f;
+    border: none;
+    padding-left: 1vmin;
+    padding-top: 1vmin;
+    padding-bottom: 0.5vmin;
+    padding-right: 2vmin;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+.sales{
+    position: relative;
+    top: -13.9vmin;
+    left: 43vmin;
+    width: 130px;
+    height: 27px;
+
+    border: 1px solid white;
+    padding-left: 1vmin;
+    padding-top: 1vmin;
+    padding-bottom: 0.5vmin;
+    padding-right: 2vmin;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+.aText{
+    margin-top: 0;
+}
+.accountText{
+    /*margin: auto;*/
+    margin-top: 0;
+    position: relative;
+    top: -1vmin;
+
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #11100f;
+    border: none;
+    font-size: 0.8rem;
+}
+.salesText{
+    /*margin: auto;*/
+    margin-top: 0;
+    position: relative;
+    top: -1vmin;
+    left: 0vmin;
+
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #3F3A36;
+    border: none;
+    font-size: 0.8rem;
+}
+.details{
+    padding-top: 2vmin;
+    top: 16vmin;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    /*margin: auto;*/
+    background-color: rgb(26, 24, 23);
+    height: 12vmin;
+    color: #FFFFFF;
+}
+.javaDetails{
+    margin-right: 2px;
+    margin-left: 6vmin;
+    margin-top: 0.5vmin;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-decoration: none; /* Remove underline from links */
+
+}
+a.javaDetails:hover {
+    text-decoration: underline;
+    color: #FFFFFF;
+
+}
+.center{
+    background-color: #3F3A36;
+    top: 28vmin;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    padding-left: 5vmin;
+    height: 45vmin;
+    color: #FFFFFF;
+}
+.cloud{
+    float: left;
+    width: 20%;
+}
+.cloudImage{
+    height: 45vmin;
+    top: 0;
+    bottom: 0;
+    left: 5vmin;
+    right: 0;
+}
+.textCloud{
+    float: left;
+    padding-top: 4%;
+    padding-left: 0;
+    margin-left: 0;
+    width: 80%;
+}
+.mainText{
+    font-size:2rem!important;
+    margin-bottom: 2vmin;
+}
+.cloudButton{
+    margin-top: 1.5vmin;
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 1.5vmin;
+    padding-top: 2vmin;
+    padding-bottom: 2vmin;
+    width: 40vmin;
+    border: 0;
+    font-size: .8rem;
+    border-radius: 6px;
+}
+.menu{
+    top: 73vmin;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    padding-left: 2vmin;
+    margin: auto;
+    /*height: 5vmin;*/
+}
+.topMenu{
+    top: 8vmin;
+    bottom: 0;
+    left:3vmin;
+    right: 0;
+    position: absolute;
+    padding-left: 2vmin;
+    margin: auto;
+    /*height: 5vmin;*/
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: .7vmin;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    height: 100%;
+}
+.topMenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: white;
+    height: 100%;
+}
+.menu li {
+    float: left;
+}
+.topMenu li {
+    float: left;
+    padding: 1vmin;
+}
+.menu li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: .8rem;
+}
+.topMenu li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.menu li a:hover {
+    opacity: 0.5;
+}
+.downloads{
+    background-color: #F1F0EB;
+    top: 83vmin;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    padding-left: 3vmin;
+    height: 35vmin;
+}
+.top{
+    padding-top: 3vmin;
+    padding-left: 3vmin;
+    float: left;
+    width: 50%;
+}
+.newest{
+    padding-left: 3vmin;
+    padding-top: 1vmin;
+    padding-bottom: 1vmin;
+    float: left;
+    width: 50%;
+}
+li{
+    margin-top: 1vmin;
+}
+.downloads ul{
+    list-style-type: none;
+    padding: 0;
+}
+.downloads li a{
+    position: relative;
+    top: -2vmin;
+    color: #456fb6;
+    font-size: 3rem;
+    font-size: 14px;
+    text-decoration: none; /* Remove underline from links */
+
+}
+
+.setFont{
+    font-family: 'OracleSans-Light', sans-serif; /* Use the font family you specified */
+}
