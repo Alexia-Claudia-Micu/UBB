@@ -1,0 +1,95 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 78563412CDAB561244-         s1 DD 12345678h, 1256ABCDh, 12AB4344h
+    13 00000009 43AB12             
+    14                                      len equ $ - s1
+    15 0000000C 00000000<rept>              s2 times len dd 0
+    16                                      b equ 4
+    17                                      p equ 8
+    18 0000003C 00000000                    c_len_d dd 0
+    19 00000040 00000000                    x1 dd 0
+    20 00000044 00                          lenS1 db 0
+    21 00000045 02                          two db 2
+    22                                      
+    23                                  ; our code starts here
+    24                                  segment code use32 class=code
+    25                                      start:
+    26                                          
+    27 00000000 66B80000                        mov ax, 0
+    28 00000004 66B80C00                        mov ax, len
+    29 00000008 F635[45000000]                  div byte [two]
+    30 0000000E A2[44000000]                    mov [lenS1], al
+    31                                          
+    32 00000013 BE[00000000]                    mov esi, s1
+    33 00000018 FC                              cld
+    34                                          
+    35 00000019 B900000000                      mov ecx, 0
+    36 0000001E 8A0D[44000000]                  mov cl, [lenS1]
+    37 00000024 BB00000000                      mov ebx, 0
+    38                                          
+    39                                          get_low: 
+    40 00000029 AD                                  lodsd
+    41 0000002A BA00000000                          mov edx, 0
+    42 0000002F 81CAFFFF0000                        or edx, 1111_1111_1111_1111b
+    43 00000035 21C2                                and edx, eax
+    44 00000037 8993[0C000000]                      mov [s2 + ebx], edx
+    45 0000003D 43                                  inc ebx
+    46 0000003E 43                                  inc ebx
+    47 0000003F 3A1D[44000000]                      cmp bl, byte [lenS1]
+    48 00000045 7402                                je stop_get_low
+    49 00000047 E2E0                            loop get_low
+    50                                          stop_get_low:
+    51                                          
+    52 00000049 BA00000000                      mov edx, 0
+    53 0000004E BB00000000                      mov ebx, 0
+    54                                          sort_i:
+    55 00000053 3A15[44000000]                      cmp dl, byte [lenS1]
+    56 00000059 774F                                ja out_sort_i
+    57 0000005B 89D3                                mov ebx, edx
+    58 0000005D 83C302                              add ebx, 2
+    59 00000060 668B82[0C000000]                    mov ax, [s2+edx]
+    60                                              sort_j:
+    61 00000067 668B8B[0C000000]                        mov cx, [s2+ebx]
+    62 0000006E 6639C8                                  cmp ax, cx
+    63 00000071 771E                                    ja dont_switch    
+    64 00000073 668983[0C000000]                        mov [s2+ebx], ax
+    65 0000007A 66898A[0C000000]                        mov [s2+edx], cx
+    66 00000081 66A3[40000000]                          mov [x1], ax
+    67 00000087 6689C8                                  mov ax, cx
+    68 0000008A 668B0D[40000000]                        mov cx, [x1]
+    69                                                  dont_switch:
+    70 00000091 43                                      inc ebx
+    71 00000092 43                                      inc ebx
+    72 00000093 3A1D[44000000]                          cmp bl, byte [lenS1]
+    73 00000099 7402                                    je out_sort_j
+    74 0000009B E2CA                                loop sort_j  
+    75                                              out_sort_j:
+    76 0000009D 83C202                              add edx, 2
+    77 000000A0 3A1D[44000000]                      cmp bl, byte [lenS1]
+    78 000000A6 7402                                je out_sort_i
+    79 000000A8 E2A9                            loop sort_i
+    80                                          out_sort_i:
+    81                                          
+    82 000000AA BE[0C000000]                    mov esi, s2
+    83 000000AF BF[00000000]                    mov edi, s1
+    84 000000B4 B900000000                      mov ecx, 0
+    85 000000B9 8A0D[44000000]                  mov cl, byte [lenS1]
+    86 000000BF FC                              cld
+    87                                          change:
+    88 000000C0 66A5                                movsw
+    89 000000C2 83E902                              sub ecx, 2
+    90 000000C5 83C702                              add edi, 2
+    91 000000C8 E2F6                            loop change
+    92                                          
+    93 000000CA 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    94 000000CC FF15[00000000]                  call    [exit]       ; call exit to terminate the program

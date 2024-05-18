@@ -1,0 +1,44 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit, printf, scanf ; add printf and scanf as extern functions            
+     6                                  import exit msvcrt.dll    
+     7                                  import printf msvcrt.dll    ; tell the assembler that function printf is found in msvcrt.dll library
+     8                                  import scanf msvcrt.dll     ; similar for scanf
+     9                                  
+    10                                  segment data use32 class=data
+    11                                      ;Read two numbers a and b (in base 10) from the keyboard and calculate a/b. 
+    12                                      ;This value will be stored in a variable called "result" (defined in the data segment). 
+    13                                      ;The values are considered in signed representation.
+    14                                      
+    15 00000000 00000000                    a dd 0
+    16 00000004 0000                        b dw 0
+    17 00000006 <res 00000002>              result resw 1
+    18 00000008 6E3D00                      message  db "n=", 0  ; char strings for C functions must terminate with 0(value, not char)
+    19 0000000B 256400                  	formatd  db "%d", 0  ; %d <=> a decimal number (base 10)
+    20 0000000E 256300                  	formatc  db "%c", 0  ; %d <=> a decimal number (base 10)
+    21 00000011 256C6C6400              	formatq  db "%lld", 0  ; %d <=> a decimal number (base 10)
+    22                                      
+    23                                  segment code use32 class=code
+    24                                      start:
+    25                                          
+    26 00000000 68[00000000]                    push dword a       ; ! addressa of n, not value
+    27 00000005 68[0B000000]                    push dword formatd
+    28 0000000A FF15[00000000]                  call [scanf]       ; call function scanf for reading
+    29 00000010 83C408                          add esp, 4 * 2     ; free parameters on the stack
+    30                                          
+    31 00000013 68[04000000]                    push dword b       ; ! addressa of n, not value
+    32 00000018 68[0B000000]                    push dword formatd
+    33 0000001D FF15[00000000]                  call [scanf]       ; call function scanf for reading
+    34 00000023 83C408                          add esp, 4 * 2     ; free parameters on the stack
+    35                                          
+    36 00000026 66A1[00000000]                  mov ax, [a]
+    37 0000002C 668B15[02000000]                mov dx, [a + 2]
+    38 00000033 668B1D[04000000]                mov bx, [b]
+    39 0000003A 66F7FB                          idiv bx ; dx:ax / bx - > result in ax
+    40                                          
+    41 0000003D 66A3[06000000]                  mov [result], ax
+    42                                          
+    43 00000043 6A00                            push    dword 0      
+    44 00000045 FF15[00000000]                  call    [exit]       

@@ -1,0 +1,105 @@
+     1                                  ; The following code will open a file called "ana.txt" from current folder,
+     2                                  ; and it will read maximum 100 characters from this file.
+     3                                  
+     4                                  ; The program will use:
+     5                                  ; - the function fopen() to open/create the file
+     6                                  ; - the function fread() to read from file
+     7                                  ; - the function fclose() to close the created file.
+     8                                  
+     9                                  ; Because the fopen() call uses the file access mode "r", the file will be open for
+    10                                  ; reading. The file must exist, otherwise the fopen() call will fail.
+    11                                  ; For details about the file access modes see the section "Theory".
+    12                                  
+    13                                  bits 32
+    14                                  
+    15                                  global start
+    16                                  
+    17                                  ; declare external functions needed by our program
+    18                                  extern exit, fopen, fread, fclose, printf
+    19                                  import exit msvcrt.dll
+    20                                  import fopen msvcrt.dll
+    21                                  import fread msvcrt.dll
+    22                                  import fclose msvcrt.dll
+    23                                  import printf msvcrt.dll    ; tell the assembler that function printf is found in msvcrt.dll library
+    24                                  
+    25                                  ; our data is declared here (the variables needed by our program)
+    26                                  segment data use32 class=data
+    27 00000000 616E612E74787400            file_name db "ana.txt", 0   ; filename to be read
+    28 00000008 7200                        access_mode db "r", 0       ; file access mode:
+    29                                                                  ; r - opens a file for reading. The file must exist. 
+    30 0000000A FFFFFFFF                    file_descriptor dd -1       ; variable to hold the file descriptor
+    31                                      len equ 100                 ; maximum number of characters to read
+    32 0000000E 00<rept>                    text times len db 0         ; string to hold the text which is read from file
+    33 00000072 257300                      format db '%s',0
+    34 00000075 256400                      formatd db '%d',0
+    35                                      lens equ 12
+    36 00000078 00000000                    ct dd 0
+    37                                  
+    38                                  ; our code starts here
+    39                                  segment code use32 class=code
+    40                                      start:
+    41                                          ; call fopen() to create the file
+    42                                          ; fopen() will return a file descriptor in the EAX or 0 in case of error
+    43                                          ; eax = fopen(file_name, access_mode)
+    44 00000000 68[08000000]                    push dword access_mode     
+    45 00000005 68[00000000]                    push dword file_name
+    46 0000000A FF15[00000000]                  call [fopen]
+    47 00000010 83C408                          add esp, 4*2                ; clean-up the stack
+    48                                  
+    49 00000013 A3[0A000000]                    mov [file_descriptor], eax  ; store the file descriptor returned by fopen
+    50                                  
+    51                                          ; check if fopen() has successfully created the file (EAX != 0)
+    52 00000018 83F800                          cmp eax, 0
+    53 0000001B 7427                            je final
+    54                                  
+    55                                          ; read the text from file using fread()
+    56                                          ; after the fread() call, EAX will contain the number of chars we've read 
+    57                                          ; eax = fread(text, 1, len, file_descriptor)
+    58 0000001D FF35[0A000000]                  push dword [file_descriptor]
+    59 00000023 6A64                            push dword len
+    60 00000025 6A01                            push dword 1
+    61 00000027 68[0E000000]                    push dword text        
+    62 0000002C FF15[00000000]                  call [fread]
+    63 00000032 83C410                          add esp, 4*4
+    64                                  
+    65                                          ; call fclose() to close the file
+    66                                          ; fclose(file_descriptor)
+    67 00000035 FF35[0A000000]                  push dword [file_descriptor]
+    68 0000003B FF15[00000000]                  call [fclose]
+    69 00000041 83C404                          add esp, 4
+    70                                  
+    71                                          final:
+    72                                         
+    73                                          
+    74 00000044 B90C000000                      mov ecx, lens
+    75 00000049 BE[0E000000]                    mov esi, text
+    76                                  
+    77                                          iterate:
+    78 0000004E AC                                  lodsb
+    79 0000004F 3C61                                cmp al, 61h
+    80 00000051 7422                                je is_vowel
+    81 00000053 3C65                                cmp al, 65h
+    82 00000055 741E                                je is_vowel
+    83 00000057 3C69                                cmp al, 69h
+    84 00000059 741A                                je is_vowel
+    85 0000005B 3C6F                                cmp al, 6Fh
+    86 0000005D 7416                                je is_vowel
+    87 0000005F 3C75                                cmp al, 75h
+    88 00000061 7412                                je is_vowel
+    89                                              ; if it is consonant, it runs this part, otherwise it skips it
+    90 00000063 8B15[78000000]                      mov edx, [ct]
+    91 00000069 83C201                              add edx, 1
+    92 0000006C 8915[78000000]                      mov [ct], edx
+    93 00000072 6639C0                              cmp ax, ax
+    94                                              
+    95                                              is_vowel:
+    96 00000075 E2D7                            loop iterate
+    97                                          
+    98 00000077 FF35[78000000]                  push dword [ct]
+    99 0000007D 68[75000000]                    push dword formatd
+   100 00000082 FF15[00000000]                  call [printf]
+   101 00000088 83C408                          add esp, 4 * 2
+   102                                          
+   103                                          ; exit(0)
+   104 0000008B 6A00                            push dword 0
+   105 0000008D FF15[00000000]                  call [exit]

@@ -1,0 +1,35 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit, printf, scanf ; add printf and scanf as extern functions            
+     6                                  import exit msvcrt.dll    
+     7                                  import printf msvcrt.dll    ; tell the assembler that function printf is found in msvcrt.dll library
+     8                                  import scanf msvcrt.dll     ; similar for scanf
+     9                                  
+    10                                  segment data use32 class=data
+    11                                      ; Read a number in base 10 from the keyboard and display the value of that number in base 16
+    12                                      
+    13 00000000 00000000                    a dd 0
+    14 00000004 0000                        b dw 0
+    15 00000006 <res 00000002>              result resw 1
+    16 00000008 6E3D00                      message  db "n=", 0  ; char strings for C functions must terminate with 0(value, not char)
+    17 0000000B 256400                  	formatd  db "%d", 0  ; %d <=> a decimal number (base 10)
+    18 0000000E 257800                  	formatx  db "%x", 0  ; %d <=> a decimal number (base 10)
+    19 00000011 256C6C6400              	formatq  db "%lld", 0  ; %d <=> a decimal number (base 10)
+    20                                      
+    21                                  segment code use32 class=code
+    22                                      start:
+    23                                          
+    24 00000000 68[00000000]                    push dword a       ; ! addressa of n, not value
+    25 00000005 68[0B000000]                    push dword formatd
+    26 0000000A FF15[00000000]                  call [scanf]       ; call function scanf for reading
+    27 00000010 83C408                          add esp, 4 * 2     ; free parameters on the stack
+    28                                          
+    29 00000013 FF35[00000000]                  push dword [a]
+    30 00000019 68[0E000000]                    push dword formatx
+    31 0000001E FF15[00000000]                  call [printf]
+    32 00000024 83C408                          add esp, 4 * 2
+    33                                          
+    34 00000027 6A00                            push    dword 0      
+    35 00000029 FF15[00000000]                  call    [exit]       
