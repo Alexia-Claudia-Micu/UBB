@@ -1,0 +1,1 @@
+Graph of size 6 cannot have that many edges.
