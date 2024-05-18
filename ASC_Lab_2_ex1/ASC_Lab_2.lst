@@ -1,0 +1,36 @@
+     1                                  bits 32 ;assembling for the 32 bits architecture
+     2                                  global start
+     3                                  
+     4                                  ; we ask the assembler to give global visibility to the symbol called start 
+     5                                  ;(the start label will be the entry point in the program) 
+     6                                  extern exit ; we inform the assembler that the exit symbol is foreign; it exists even if we won't be defining it
+     7                                  import exit msvcrt.dll  ; we specify the external library that defines the symbol
+     8                                          ; msvcrt.dll contains exit, printf and all the other important C-runtime functions
+     9                                  
+    10                                  ; our variables are declared here (the segment is called data) 
+    11                                  segment data use32 class=data
+    12                                  ; ... 
+    13 00000000 05                          a db 5;
+    14 00000001 25                          b db 1125h;
+    14          ******************       warning: byte data exceeds bounds [-w+number-overflow]
+    15 00000002 8866                        a1 dw 6688h;
+    16 00000004 2301896745230100            b2 dq 1_23_45_67_89_01_23h;
+    17                                  
+    18                                  ; the program code will be part of a segment called code
+    19                                  segment code use32 class=code
+    20                                  start:
+    21                                  ; ... 
+    22                                      
+    23 00000000 B003                        mov al, 3;
+    24 00000002 B807000000                  mov eax, 7;
+    25 00000007 B000                        mov al, 256;
+    25          ******************       warning: byte data exceeds bounds [-w+number-overflow]
+    26 00000009 B800010000                  mov eax, 256;
+    27 0000000E B005                        mov al, 5;
+    28 00000010 6605[0000]                  add ax, a;
+    29 00000014 B005                        mov al, 5;
+    30 00000016 0205[00000000]              add al, [a];
+    31                                      
+    32                                      ; call exit(0) ), 0 represents status code: SUCCESS
+    33 0000001C 6A00                        push dword 0 ; saves on stack the parameter of the function exit
+    34 0000001E FF15[00000000]              call [exit] ; function exit is called in order to end the execution of the program

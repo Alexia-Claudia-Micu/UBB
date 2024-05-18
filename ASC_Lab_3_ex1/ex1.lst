@@ -1,0 +1,115 @@
+     1                                  ; hw1
+     2                                  
+     3                                  bits 32
+     4                                  global start
+     5                                  extern exit
+     6                                  import exit msvcrt.dll  
+     7                                  segment data use32 class=data
+     8 00000000 01                      x db 1
+     9                                  
+    10 00000001 1E                      a db 30
+    11 00000002 03                      b db 3
+    12 00000003 02                      c db 2
+    13 00000004 07                      d db 7
+    14                                  
+    15 00000005 0A00                    a2 dw 10
+    16 00000007 0800                    b2 dw 8
+    17 00000009 0700                    c2 dw 7
+    18 0000000B 0400                    d2 dw 4
+    19                                  
+    20 0000000D 05                      a3 db 5
+    21 0000000E 06                      b3 db 6
+    22 0000000F 07                      c3 db 7
+    23 00000010 3C00                    d3 dw 60 
+    24                                  
+    25 00000012 14                      a4 db 20
+    26 00000013 07                      b4 db 7
+    27 00000014 04                      c4 db 4
+    28 00000015 05                      d4 db 5
+    29 00000016 4100                    e4 dw 65
+    30 00000018 1800                    f4 dw 24
+    31 0000001A 5200                    g4 dw 82 
+    32 0000001C 5E00                    h4 dw 94
+    33                                  
+    34                                  segment code use32 class=code
+    35                                  
+    36                                  start:
+    37                                  
+    38 00000000 B086                    mov al, 86h
+    39 00000002 6698                    cbw
+    40 00000004 B302                    mov bl, 2
+    41 00000006 F6FB                    idiv bl
+    42                                  
+    43                                  ;simple exercises (24: 256/1)
+    44                                  
+    45                                   ;   mov EAX, 256
+    46                                   ;   div BYTE [x] 
+    47                                      
+    48                                  ; a,b,c,d - byte
+    49                                  ; 24 :(a-b-b-c)+(a-c-c-d)
+    50                                      
+    51                                  ;mov AL, [a]
+    52                                  ;sub AL,[b]
+    53                                  ;sub AL,[b]
+    54                                  ;sub AL,[c]
+    55                                  ;mov BL, [a]
+    56                                  ;sub BL, [c]
+    57                                  ;sub BL, [c]
+    58                                  ;sub BL, [d]
+    59                                  ;add BL, AL
+    60                                      
+    61                                  ; a, b, c, d - word
+    62                                  ; 24 : (a-c)+(b-d)
+    63                                      
+    64                                  ;mov AX, [a2]
+    65                                  ;sub AX, [c2]
+    66                                  ;mov BX, [b2]
+    67                                  ;sub BX, [d2]
+    68                                  ;add AX, BX
+    69                                  
+    70                                  ; a,b,c - byte, d - word
+    71                                  ; 24 : (10*a-5*b)+(d-5*c) = 20 + 25 = 45
+    72                                  
+    73                                  ;mov AL, [a3]
+    74                                  ;mov BL, 10
+    75                                  ;mul byte BL ; 10*a <- ax
+    76                                  
+    77                                  ;mov CX, AX ; we move the multiplying result in BX
+    78                                  
+    79                                  ;mov AL, [b3]
+    80                                  ;mov BL, 5
+    81                                  ;mul byte BL
+    82                                  
+    83                                  ;sub CX, AX ; <- 10*a-5*b
+    84                                  
+    85                                  ;mov DX, [d3] ; <- d3
+    86                                  
+    87                                  ;mov AX, 0
+    88                                  ;mov BL, 5
+    89                                  ;mov AL, [c3]
+    90                                  ;mul byte BL
+    91                                  
+    92                                  ;sub DX, AX ; <- d-5*c
+    93                                  
+    94                                  ;add CX, DX
+    95                                  
+    96                                  ; a,b,c,d-byte, e,f,g,h-word
+    97                                  ; 24 : [(a-d)+b]*2/c = 44
+    98                                  
+    99                                  ;mov AL, [a4]
+   100                                  ;mov BL, [d4]
+   101                                  ;sub AL, BL ;<- a-d
+   102                                  
+   103                                  ;mov CL, [b4] ;<- b
+   104                                  
+   105                                  ;add AL, CL ;<- (a-d) + b
+   106                                  
+   107                                  ;mov BH, 2
+   108                                  ;mul byte BH ; <- ((a-d)+b)*2
+   109                                  
+   110                                  ;mov BH, 0
+   111                                  ;mov BH, [c4]
+   112                                  ;div byte BH   ;<- ((a-d)+b)*2/c
+   113                                  
+   114 00000008 6A00                    push dword 0
+   115 0000000A FF15[00000000]          call [exit]
