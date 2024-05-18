@@ -1,30 +1,30 @@
 # UBB
 
 ## 1<sup>st</sup> Semester
-- Algebra
-- [ASC - Computer Systems Arhitecture](1stSemester/ASC)
-- [Computational Logic](1stSemester/Logic)
-- [FP - Fundamentals of Programming](1stSemester/FP)
-- Mathematical Analysis
+- :broccoli: Algebra
+- :green_apple: [ASC - Computer Systems Arhitecture](1stSemester/ASC)
+- :pear: [Computational Logic](1stSemester/Logic)
+- :kiwi_fruit: [FP - Fundamentals of Programming](1stSemester/FP)
+- :avocado: Mathematical Analysis
 
 ## 2<sup>nd</sup> Semester
-- Geometry
-- [Graph Algorithms](2ndSemester/Graphs)
-- [OOP - Object Oriented Programming](2ndSemester/OOP)
-- OS - Operating Systems
-- SD - Dynamical Systems
-- [SDA - Data Structures and Algorithms](2ndSemester/SDA)
+- :mango: Geometry
+- :pineapple: [Graph Algorithms](2ndSemester/Graphs)
+- :banana: [OOP - Object Oriented Programming](2ndSemester/OOP)
+- :lemon: OS - Operating Systems
+- :melon: SD - Dynamical Systems
+- :mandarin: [SDA - Data Structures and Algorithms](2ndSemester/SDA)
 
 ## 3<sup>rd</sup> Semester
-- [Computer Networks](3rdSemester/Networks)
-- [Databases](3rdSemester/Databases)
-- [MAP - Advanced Methods of Programming](3rdSemester/MAP)
-- [PLF - Functional and Logical Programming](3rdSemester/PLF)
-- [Probabilities and Statistics](3rdSemester/ProbabilitiesAndStatistics)
+- :hot_pepper: [Computer Networks](3rdSemester/Networks)
+- :watermelon: [Databases](3rdSemester/Databases)
+- :mushroom: [MAP - Advanced Methods of Programming](3rdSemester/MAP)
+- :cherries: [PLF - Functional and Logical Programming](3rdSemester/PLF)
+- :strawberry: [Probabilities and Statistics](3rdSemester/ProbabilitiesAndStatistics)
 
 ## 4<sup>th</sup> Semester
-- [AI - Artificial Intelligence](4thSemester/AI)
-- [Database Management Systems](4thSemester/Databases)
-- [ISS - Software Engineering](4thSemester/ISS)
-- [MPP](4thSemester/MPP)
-- [Web Programming](4thSemester/Web)
+- :fox_face: [AI - Artificial Intelligence](4thSemester/AI)
+- :hedgehog: [Database Management Systems](4thSemester/Databases)
+- :tiger: [ISS - Software Engineering](4thSemester/ISS)
+- :lion: [MPP](4thSemester/MPP)
+- :horse: [Web Programming](4thSemester/Web)
