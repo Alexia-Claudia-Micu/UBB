@@ -1,0 +1,97 @@
+     1                                  bits 32
+     2                                  global start
+     3                                  
+     4                                  extern exit
+     5                                  import exit msvcrt.dll  
+     6                                  
+     7                                  segment data use32 class=data
+     8                                      
+     9                                      ; ex 2: Given the words A and B, compute the doubleword C as follows:
+    10                                      ;the bits 0-3 of C are the same as the bits 5-8 of B
+    11                                      ;the bits 4-8 of C are the same as the bits 0-4 of A
+    12                                      ;the bits 9-15 of C are the same as the bits 6-12 of A
+    13                                      ;the bits 16-31 of C are the same as the bits of B
+    14                                      
+    15 00000000 5777                        a1 dw 0111_0111_0101_0111b
+    16 00000002 BE9B                        b1 dw 1001_1011_1011_1110b
+    17 00000004 00000000                    c1 dd 0b
+    18                                      
+    19                                      ; ex 17: Given the word A and the byte B, compute the doubleword C:
+    20                                      ;the bits 0-3 of C have the value 1
+    21                                      ;the bits 4-7 of C are the same as the bits 0-3 of A
+    22                                      ;the bits 8-13 of C have the value 0
+    23                                      ;the bits 14-23 of C are the same as the bits 4-13 of A
+    24                                      ;the bits 24-29 of C are the same as the bits 2-7 of B
+    25                                      ;the bits 30-31 have the value 1
+    26                                      
+    27 00000008 5777                        a2 dw 0111_0111_0101_0111b
+    28 0000000A BE                          b2 db 1011_1110b
+    29 0000000B 00000000                    c2 dd 0b
+    30                                          
+    31                                  segment code use32 class=code
+    32                                  start:
+    33                                  
+    34                                      ; ex 2
+    35                                      
+    36 00000000 BB00000000                  mov ebx, 0 ; we compute the result in bx
+    37                                      
+    38 00000005 66A1[02000000]              mov ax, [b1] ; we isolate the bits 5-8 of B
+    39 0000000B 6625E001                    and ax, 0000_0001_1110_0000b
+    40 0000000F B105                        mov cl, 5
+    41 00000011 66D3C8                      ror ax, cl ; we rotate 5 positions to the right
+    42 00000014 6609C3                      or bx, ax ; we put the bits into the result
+    43                                      
+    44 00000017 66A1[00000000]              mov ax, [a1] ; we isolate the bits 0-4 of A
+    45 0000001D 6683E01F                    and ax, 0000_0000_0001_1111b
+    46 00000021 B104                        mov cl, 4
+    47 00000023 66D3C0                      rol ax, cl ; we rotate 4 positions to the left
+    48 00000026 6609C3                      or bx, ax ; we put the bits into the result
+    49                                      
+    50 00000029 66A1[00000000]              mov ax, [a1] ; we isolate the bits 6-12 of A
+    51 0000002F 6625C01F                    and ax, 0001_1111_1100_0000b
+    52 00000033 B103                        mov cl, 3
+    53 00000035 66D3C0                      rol ax, cl ; we rotate 3 positions to the left
+    54 00000038 6609C3                      or bx, ax ; we put the bits into the result
+    55                                      
+    56 0000003B B800000000                  mov eax, 0 ; we move the bits of B on the latter half of a dw
+    57 00000040 66A1[02000000]              mov ax, [b1]
+    58 00000046 B110                        mov cl, 16
+    59 00000048 D3C0                        rol eax, cl ; we rotate 16 positions to the left
+    60 0000004A 09C3                        or ebx, eax ; we put the bits into the result
+    61                                      
+    62 0000004C 891D[04000000]              mov [c1], ebx ; we move the result from the register to the result variable
+    63                                      
+    64                                      ; ex 17
+    65                                      
+    66 00000052 BB00000000                  mov ebx, 0 ; we compute the result in bx
+    67                                      
+    68 00000057 6683CB0F                    or bx, 0000_0000_0000_1111b ; make bits 0-3 have the value 1
+    69                                      
+    70 0000005B 66A1[08000000]              mov ax, [a2] ; we isolate the bits 0-3 of A
+    71 00000061 6683E00F                    and ax, 0000_0000_0000_1111b
+    72 00000065 B104                        mov cl, 4
+    73 00000067 66D3C0                      rol ax, cl ; we rotate 4 positions to the left
+    74 0000006A 6609C3                      or bx, ax ; we put the bits into the result
+    75                                      
+    76 0000006D 6681E3FF00                  and bx, 0000_0000_1111_1111b ; make bits 8-(13)15 have the value 0
+    77                                      
+    78 00000072 B800000000                  mov eax, 0
+    79 00000077 66A1[08000000]              mov ax, [a2] ; we isolate the bits 4-13 of A
+    80 0000007D 6625F03F                    and ax, 0011_1111_1111_0000b
+    81 00000081 B10A                        mov cl, 10
+    82 00000083 D3C0                        rol eax, cl ; we rotate 10 positions to the left
+    83 00000085 09C3                        or ebx, eax ; we put the bits into the result
+    84                                      
+    85 00000087 B800000000                  mov eax, 0
+    86 0000008C 66A1[0A000000]              mov ax, [b2] ; we isolate the bits 2-7 of B
+    87 00000092 6625FC00                    and ax, 0000_0000_1111_1100b
+    88 00000096 B116                        mov cl, 22
+    89 00000098 D3C0                        rol eax, cl ; we rotate 22 positions to the left
+    90 0000009A 09C3                        or ebx, eax ; we put the bits into the result
+    91                                      
+    92 0000009C 81CB000000C0                or ebx, 1100_0000_0000_0000_0000_0000_0000_0000b ; make bits 30-31 have the value 1
+    93                                      
+    94 000000A2 891D[0B000000]              mov [c2], ebx ; we move the result from the register to the result variable
+    95                                      
+    96 000000A8 6A00                        push dword 0
+    97 000000AA FF15[00000000]              call [exit]
