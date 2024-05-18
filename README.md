@@ -11,8 +11,8 @@
 - Geometry
 - [Graph Algorithms](2ndSemester/Graphs)
 - [OOP - Object Oriented Programming](2ndSemester/OOP)
-- [OS - Operating Systems](2ndSemester/OS)
-- [SD - Dynamical Systems](2ndSemester/SD)
+- OS - Operating Systems
+- SD - Dynamical Systems
 - [SDA - Data Structures and Algorithms](2ndSemester/SDA)
 
 ## 3<sup>rd</sup> Semester
