@@ -1,0 +1,55 @@
+     1                                  ; this code reads from keyboard
+     2                                  
+     3                                  ; need to import the scanf function
+     4                                  
+     5                                  bits 32 ; nr of bits on which the processor works
+     6                                  
+     7                                  global start ; import start function
+     8                                  
+     9                                  extern exit ; import external function
+    10                                  extern scanf
+    11                                  extern printf
+    12                                  
+    13                                  import exit msvcrt.dll ; tell the assembler where to find the exit function
+    14                                  import scanf msvcrt.dll
+    15                                  import printf msvcrt.dll
+    16                                  
+    17                                  segment data use32 class=data
+    18 00000000 726561643E2000              message db "read> ", 0
+    19 00000007 256300                      format_c db "%c", 0
+    20 0000000A 256400                      format_d db "%d", 0
+    21 0000000D 257500                      format_u db "%u", 0
+    22 00000010 257800                      format_x db "%x", 0
+    23 00000013 257300                      format_s db "%s", 0
+    24 00000016 256C6C6400                  format_lld db "%lld", 0
+    25 0000001B 6561783A2025642C20-         output db "eax: %d, text: %s, char: %c", 0
+    25 00000024 746578743A2025732C-
+    25 0000002D 20636861723A202563-
+    25 00000036 00                 
+    26 00000037 0000000000000000            n dq 0
+    27                                  
+    28                                      
+    29                                  segment code use32 class=code
+    30                                      start:
+    31                                      
+    32 00000000 68[00000000]                push dword message
+    33 00000005 68[13000000]                push dword format_s
+    34 0000000A FF15[00000000]              call [printf]
+    35 00000010 83C408                      add esp, 4*2
+    36                                      
+    37 00000013 68[37000000]                push dword n
+    38 00000018 68[13000000]                push dword format_s
+    39 0000001D FF15[00000000]              call [scanf]
+    40 00000023 83C408                      add esp, 4*2
+    41                                      
+    42 00000026 FF35[37000000]              push dword [n]
+    43 0000002C 68[37000000]                push dword n
+    44 00000031 B811000000                  mov eax, 17
+    45 00000036 50                          push dword eax
+    46 00000037 68[1B000000]                push dword output
+    47 0000003C FF15[00000000]              call [printf]
+    48 00000042 83C410                      add esp, 4*4
+    49                                  
+    50                                      
+    51 00000045 6A00                        push dword 0
+    52 00000047 FF15[00000000]              call [exit]
