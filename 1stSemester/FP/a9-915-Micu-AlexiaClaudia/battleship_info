@@ -1,0 +1,23 @@
+battleship_info
+
+ui <- game <- Player <- board
+
+ui
+
+game
+1. Run/ Pause
+2. Winner
+3. Player 1, Player 2
+4. Turn
+
+Player
+1. Board_self
+2. Board_opponent
+
+Board
+- 10x10 matrix
+1. Carrier 5
+2. Battleship 4
+3. Destroyer 3
+4. Submarine 3
+5. Patrol Boat 2
