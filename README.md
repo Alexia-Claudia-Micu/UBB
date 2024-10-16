@@ -30,9 +30,9 @@
 - :horse: [Web Programming](4thSemester/Web)
 
 ## 5<sup>th</sup> Semester
-- :umbrella: [MA - Mobile Applications](5thSemester/MA)
-- :ant: [RPA - Robotic Process Automation](5thSemester/RPA)
-- :clapper: [VR - Virtual Reality](5thSemester/VR)
-- :crystal_ball: [LFTC - Formal Languages and Compiler Design](5thSemester/LFTC)
-- :grapes: [PPD - Parallel and Distributed Programming](5thSemester/PPD)
 - :space_invader: Colective Project
+- :crystal_ball: [LFTC - Formal Languages and Compiler Design](5thSemester/LFTC)
+- :umbrella: [MA - Mobile Applications](5thSemester/MA)
+- :grapes: [PPD - Parallel and Distributed Programming](5thSemester/PPD)
+- :video_game: [RPA - Robotic Process Automation](5thSemester/RPA)
+- :clapper: [VR - Virtual Reality](5thSemester/VR)
