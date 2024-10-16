@@ -1,0 +1,23 @@
+2. Syntax
+	-The words - predefined tokens are specified between " and ":
+	-program ::= variables(decllist) "; program(" cmpdstmt ");"
+	-decllist ::= declaration | declaration ";" decllist
+	-declaration ::= declare (type IDENTIFIER);
+	-type1 ::= "BOOL" | "CHAR" | "INT" | "REAL"
+	-arraydecl ::= array<type1>
+	-type ::= type1|arraydecl
+	-cmpdstmt ::= program(stmtlist)
+	-stmtlist ::= stmt | stmt ";" stmtlist
+	-stmt :: simplstmt | structstmt
+	-simplstmt ::= assignstmt | iostmt
+	-assignstmt ::= give(IDENTIFIER "<-" expression)
+	-expression ::= expression "+" term | term
+	-term ::= term "*" factor | factor
+	-factor ::= "(" expression ")" | IDENTIFIER
+	-iostmt ::= "READ" | "WRITE" "(" IDENTIFIER ")"
+	-structstmt ::= cmpdstmt | ifstmt | whilestmt | forstmt
+	-ifstmt ::= condition ( if(condition){stmt}else{stmt} )
+	-whilestmt ::= loop(while(condition){stmt})
+	-forstmt ::= loop(for(declaration;condition;expression){stmt})
+	-condition ::= expression RELATION expression
+	-RELATION ::= "<" | "<=" | "=" | "<>" | ">=" | ">"

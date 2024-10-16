@@ -1,0 +1,31 @@
+function 
+(
+	noreturn print_sum receive ( array<int> list )
+	{
+		declare (int sumt = 0);
+
+		loop
+		(
+			for( declare (int i = 0); i < length(list); increment 1)
+			{
+				give (sum <- sum + list[i]);
+			}
+		);
+
+		write ("sum is {sum}");
+	}
+);
+
+main
+(
+	main noreceive
+	{
+		declare (array<int> list);
+
+		write ( "give list = " );
+		read (list);
+
+		call (print_sum with (x));			
+	}
+);
+

@@ -1,0 +1,28 @@
+function 
+(
+	noreturn print_sum ( array<int> list ) // did not specify "receive" for parameter
+	{
+		declare (int sumt = 0);
+
+		loop
+		(
+			for( declare (int i = 0); i < length(list); increment 1)
+			{
+				give (sum = sum + list[i]); // used = instead of <-
+			}
+		);
+
+		write ("sum is {sum}");
+	}
+) // no ;
+
+
+main noreceive  // did not specify if this is a function
+{
+	declare (array<int> list);
+
+	write ( "give list = " );
+	read (list);
+
+	call (print_sum with (x));			
+}

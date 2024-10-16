@@ -1,0 +1,169 @@
+// ------------------------------------------------------------------------------- p1
+function 
+(
+	bool is_prime receive ( int x )
+	{
+		declare (bool result = true);
+
+		condition 
+		(
+			if( x == 1 || (x % 2 == 0 && x != 2))
+			{
+				give (result <- false);
+			}
+			else
+			{
+				loop
+				(
+					for ( declare (int d = 3); d * d <= x; increment (2))
+					{
+						condition
+						(
+							if( x % d == 0)
+							{
+								give (result <- false);
+							}
+						);
+					}
+				);
+			}
+		);
+
+		return ( result );
+	}
+);
+
+main
+(
+	main noreceive
+	{
+		declare (int x);
+
+		write ( "give x = " );
+		read (x);
+
+		declare (bool result);
+		give (
+				result <- 
+					call (is_prime with (x)) 
+			 );
+
+		write( "\nresult is {result}" );
+	}
+);
+
+//--------------------------------------------------------------------------- p2
+
+
+function 
+(
+	int smallest_common_multiple receive ( int a, int b)
+	{
+		declare (int x = a), (int y = b);
+
+		loop
+		(
+			while( x != y)
+			{
+				condition
+				(
+					if( x > y)
+					{
+						give ( y <- y + b);
+					}
+					else
+					{
+						give ( x <- x + a);
+					}
+				);
+			}
+		);
+		return (x);
+	}
+
+);
+
+main
+(
+	main noreceive
+	{
+		declare (int a), (int b);
+
+		write ( "give a = " );
+		read (a);
+		write ( "give b = " );
+		read (b);
+
+		declare (int result);
+		give (
+				result <- 
+					call (smallest_common_multiple with (a, b)) 
+			 );
+
+		write( "\nresult is {result}" );
+	}
+);
+
+// -------------------------------------------------------------------- p3
+
+function 
+(
+	noreturn print_sum receive ( array<int> list )
+	{
+		declare (int sumt = 0);
+
+		loop
+		(
+			for( declare (int i = 0); i < length(list); increment 1)
+			{
+				give (sum <- sum + list[i]);
+			}
+		);
+
+		write ("sum is {sum}");
+	}
+);
+
+main
+(
+	main noreceive
+	{
+		declare (array<int> list);
+
+		write ( "give list = " );
+		read (list);
+
+		call (print_sum with (x));			
+	}
+);
+
+// -------------------------------------------------------------- p1err
+
+function 
+(
+	noreturn print_sum ( array<int> list ) // did not specify "receive" for parameter
+	{
+		declare (int sumt = 0);
+
+		loop
+		(
+			for( declare (int i = 0); i < length(list); increment 1)
+			{
+				give (sum = sum + list[i]); // used = instead of <-
+			}
+		);
+
+		write ("sum is {sum}");
+	}
+) // no ;
+
+
+main noreceive  // did not specify if this is a function
+{
+	declare (array<int> list);
+
+	write ( "give list = " );
+	read (list);
+
+	call (print_sum with (x));			
+}

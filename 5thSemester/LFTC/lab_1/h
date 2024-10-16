@@ -1,0 +1,12 @@
+Rules:
+	- Initialize variables using "declare" - end with ;
+	- Signal a contional (if, switch) using "condition" - end with ;
+	- Signal a loop (for, while, do) using "loop" end with ;
+	- Attribute a value using "give (<var> <- <value>)" - end with ;
+	- third parameter of a for loop can be "increment <value>"
+	- before functions : "function"
+	- function receiving parameter parameters : "receive" or "noreceive"
+	- function call : "call( <function_name> with (<parameter>))"
+	- for main : "main"
+
+the rest is like c++
