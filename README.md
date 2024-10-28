@@ -26,7 +26,7 @@
 - :fox_face: [AI - Artificial Intelligence](4thSemester/AI)
 - :hedgehog: [Database Management Systems](4thSemester/Databases)
 - :tiger: [ISS - Software Engineering](4thSemester/ISS)
-- :lion: [MPP](4thSemester/MPP)
+- :lion: [MPP - Design and Programming Environments](4thSemester/MPP)
 - :horse: [Web Programming](4thSemester/Web)
 
 ## 5<sup>th</sup> Semester
