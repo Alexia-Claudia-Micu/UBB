@@ -1,0 +1,52 @@
+function 
+(
+	bool is_prime receive ( int x )
+	{
+		declare (bool result = true);
+
+		condition 
+		(
+			if( x == 1 || (x % 2 == 0 && x != 2))
+			{
+				give (result <- false);
+			}
+			else
+			{
+				loop
+				(
+					for ( declare (int d = 3); d * d <= x; increment (2))
+					{
+						condition
+						(
+							if( x % d == 0)
+							{
+								give (result <- false);
+							}
+						);
+					}
+				);
+			}
+		);
+
+		return ( result );
+	}
+);
+
+main
+(
+	main noreceive
+	{
+		declare (int x);
+
+		write ( "give x = " );
+		read (x);
+
+		declare (bool result);
+		give (
+				result <- 
+					call (is_prime with (x)) 
+			 );
+
+		write( result );
+	}
+);

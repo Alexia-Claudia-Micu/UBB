@@ -1,0 +1,48 @@
+function 
+(
+	int smallest_common_multiple receive ( int a, int b)
+	{
+		declare (int x = a), (int y = b);
+
+		loop
+		(
+			while( x != y)
+			{
+				condition
+				(
+					if( x > y)
+					{
+						give ( y <- y + b);
+					}
+					else
+					{
+						give ( x <- x + a);
+					}
+				);
+			}
+		);
+		return (x);
+	}
+
+);
+
+main
+(
+	main noreceive
+	{
+		declare (int a), (int b);
+
+		write ( "give a = " );
+		read (a);
+		write ( "give b = " );
+		read (b);
+
+		declare (int result);
+		give (
+				result <- 
+					call (smallest_common_multiple with (a, b)) 
+			 );
+
+		write( "\nresult is {result}" );
+	}
+);

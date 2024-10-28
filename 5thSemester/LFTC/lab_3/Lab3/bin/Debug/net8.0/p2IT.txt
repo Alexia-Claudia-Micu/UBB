@@ -1,0 +1,8 @@
+Token x on position 1
+Token y on position 1
+Token smallest_common_multiple on position 1
+Token result on position 1
+Token a on position 1
+Token b on position 1
+
+
