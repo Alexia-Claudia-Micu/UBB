@@ -1,0 +1,32 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Type input -->
+    <EditText
+        android:id="@+id/plant_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Location input -->
+    <EditText
+        android:id="@+id/plant_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Picture input -->
+    <ImageView
+        android:id="@+id/plant_picture"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/btn_update_plant"
+        android:text="Update Plant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

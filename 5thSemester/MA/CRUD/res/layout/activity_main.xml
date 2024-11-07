@@ -1,0 +1,24 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Add Plant Button -->
+    <Button
+        android:id="@+id/btn_add_plant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Plant"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:layout_alignParentTop="true"/>
+
+    <!-- RecyclerView for Plant List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btn_add_plant"
+        tools:listitem="@layout/plant_item"/>
+</RelativeLayout>
