@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<template_pagination.Models.WebsitesViewModel>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>URL</td>
+            <td>Number of Documents</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var website in Model)
+        {
+            <tr>
+                <td>@website.Id</td>
+                <td>@website.URL</td>
+                <td>@website.NrDocuments</td>
+            </tr>
+        }
+    </tbody>
+</table>

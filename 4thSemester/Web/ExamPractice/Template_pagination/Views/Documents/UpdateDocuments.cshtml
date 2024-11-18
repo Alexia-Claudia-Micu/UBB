@@ -1,0 +1,52 @@
+﻿@model template_pagination.Models.PagedDocumentsViewModel
+
+<h1>Documents</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Website id</td>
+            <td>Key1</td>
+            <td>Key2</td>
+            <td>Key3</td>
+            <td>Key4</td>
+            <td>Key5</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var document in Model.Documents)
+        {
+            <tr>
+                <td>@document.Id</td>
+                <td>@document.IdWebSite</td>
+                <td>@document.Keyword1</td>
+                <td>@document.Keyword2</td>
+                <td>@document.Keyword3</td>
+                <td>@document.Keyword4</td>
+                <td>@document.Keyword5</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Documents" asp-action="EditDocuments" asp-route-id="@document.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination">
+    @if (Model.PageNumber > 1)
+    {
+        <a asp-action="UpdateDocuments" asp-route-pageNumber="@(Model.PageNumber - 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-primary">Previous</a>
+    }
+
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        <a asp-action="UpdateDocuments" asp-route-pageNumber="@i" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary @(i == Model.PageNumber ? "active" : "")">@i</a>
+    }
+
+    @if (Model.PageNumber < Model.TotalPages)
+    {
+        <a asp-action="UpdateDocuments" asp-route-pageNumber="@(Model.PageNumber + 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-primary">Next</a>
+    }
+</div>
