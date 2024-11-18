@@ -1,0 +1,29 @@
+﻿@model Template_1m.Models.AddDCViewModel
+
+@{
+    ViewData["Title"] = "Add DC";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust layout path as per your application
+}
+
+<h1>Add DC</h1>
+
+<form asp-action="Add" method="post" class="needs-validation" novalidate>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-check-label">
+            <input asp-for="IsFree" class="form-check-input" /> Is Free
+        </label>
+        <span asp-validation-for="IsFree" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add DC</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

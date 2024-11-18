@@ -1,0 +1,34 @@
+﻿@model Template_1m.Models.AddGameViewModel
+
+@{
+    ViewData["Title"] = "Add Game";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust layout path as per your application
+}
+
+<h1>Add Game</h1>
+
+<form asp-action="Add" method="post" class="needs-validation" novalidate>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReleaseDate">Release Date</label>
+        <input asp-for="ReleaseDate" class="form-control" />
+        <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Game</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

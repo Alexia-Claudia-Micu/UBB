@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Template_1m.Models.Entities.Game>
+
+@{
+    ViewData["Title"] = "My Games";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Add" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Release Date</th>
+            <th>Nr of dlcs</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>@game.Name</td>
+                <td>@game.Price</td>
+                <td>@game.ReleaseDate.ToShortDateString()</td>
+                <td></td> 
+                <td>
+                    <a class="btn btn-primary" asp-controller="Game" asp-action="Edit" asp-route-id="@game.Id">Edit</a>
+                    <form method="post" asp-controller="Game" asp-action="Delete" asp-route-id="@game.Id" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this?');">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <a class="btn btn-info" asp-controller="DC" asp-action="Index" asp-route-gameId="@game.Id">See DLCs</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
