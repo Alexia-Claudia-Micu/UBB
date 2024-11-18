@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<template_filter.Models.Entities.Hotel>
+<h1>Hotels that have available rooms on the specific date and is in your chosen city</h1>
+
+<form method="get" asp-controller="Reservation" asp-action="Filter">
+    <div class="form-group">
+        <label for="filter">Filter</label>
+        <input type="number" id="filter" name="filter"/>
+    </div>
+    <button type="submit">Filter</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>City</th>
+            <th>Available Rooms</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hotel in Model)
+        {
+            <tr>
+                <td>@hotel.Id</td>
+                <td>@hotel.Name</td>
+                <td>@hotel.Date</td>
+                <td>@hotel.AvailableRooms</td>
+                <td>
+                    <form method="post" asp-controller="reservation" asp-action="BookHotels" asp-route-hotelId="@hotel.Id" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Book</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

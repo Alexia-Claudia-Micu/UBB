@@ -1,0 +1,30 @@
+﻿@model List<template_filter.Models.Entities.Flight>
+
+<h1>You can see flight scheduled on a specific day, go to your chosen destination, and still have seats left</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Day</th>
+            <th>Destination</th>
+            <th>Seats Left</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var flight in Model)
+        {
+            <tr>
+                <td>@flight.Id</td>
+                <td>@flight.Date</td>
+                <td>@flight.DestinationCity</td>
+                <td>@flight.AvailableSeats</td>
+                <td>
+                    <form method="post" asp-controller="reservation" asp-action="BookFlights" asp-route-flightId="@flight.Id" style="display:inline;" >
+                        <button type="submit" class="btn btn-danger">Book</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

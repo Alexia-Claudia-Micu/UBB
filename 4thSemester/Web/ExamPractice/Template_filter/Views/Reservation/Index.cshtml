@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model template_filter.Models.BookingViewModel
+<h1>Start</h1>
+<form asp-action="Index" method="post">
+    <div>
+        <label for="person">Name</label>
+        <input type="text" name="person" id="person"/>
+    </div>
+    <div>
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date"/>
+    </div>
+    <div>
+        <label for="city">Destination City</label>
+        <input type="text" name="city" id="city"/>
+    </div>
+    <button type="submit">Begin Reservation</button>
+
+</form>
