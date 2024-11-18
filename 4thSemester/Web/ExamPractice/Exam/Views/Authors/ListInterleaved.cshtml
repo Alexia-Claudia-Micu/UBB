@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<template_exam.Models.ListInterleaved>
+
+<table>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                @if (obj.Movie != null)
+                {
+                    <td>Movie</td>
+                    <td>@obj.Movie</td>
+                }
+            </tr>
+            <tr>
+                @if (obj.Doc != null)
+                {
+                    <td>Document</td>
+                    <td>@obj.Doc</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
