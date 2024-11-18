@@ -1,0 +1,41 @@
+﻿@model List<template_journal.Models.Entities.Article>
+@using Microsoft.AspNetCore.Mvc.Rendering;
+
+<h1>Articles</h1>
+
+<form method="get" asp-controller="Home" asp-action="List">
+	<div class="form-group">
+		<label for="journalFilter">Filter by journal</label>
+		<select id="journalFilter" name="journalFilter" class="form-control" onchange="this.form.submit()">
+			<option value="">None</option>
+			@foreach(var article in Model)
+			{
+				<option value="@article.Journal.Name" selected="@(article == ViewBag.journalFilter)">@article.Journal.Name</option>
+			}
+		</select>
+	</div>
+</form>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>User</th>
+			<th>Journal</th>
+			<th>Summary</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var article in Model)
+		{
+			<tr>
+				<td>@article.Id</td>
+				<td>@article.User</td>
+				<td>@article.Journal.Name</td>
+				<td>@article.Summary</td>
+				<td>@article.Date</td>
+			</tr>
+		}
+	</tbody>
+</table>

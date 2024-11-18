@@ -1,0 +1,15 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model template_journal.Models.LoginViewModel
+
+<h1>Who are you</h1>
+<form asp-action="Login" method="post">
+    <div>
+        <label for="user">User</label>
+        <input type="text" id="user" name="user" />
+    </div>
+    <button type="submit">My Articles</button>
+</form>

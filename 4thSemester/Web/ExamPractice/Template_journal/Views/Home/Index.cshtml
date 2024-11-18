@@ -1,0 +1,26 @@
+﻿@model List<template_journal.Models.Entities.Article>
+
+<h1>Articles</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>User</th>
+			<th>Journal</th>
+			<th>Summary</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var article in Model)
+		{
+			<tr>
+				<td>@article.Id</td>
+				<td>@article.User</td>
+				<td>@article.Journal.Name</td>
+				<td>@article.Summary</td>
+				<td>@article.Date</td>
+			</tr>
+		}
+	</tbody>
+</table>
