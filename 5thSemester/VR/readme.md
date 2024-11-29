@@ -1,2 +1,2 @@
-![Image](Ray-Trace/046.png)
+![Image](Ray-Tracer/046.png)
 
