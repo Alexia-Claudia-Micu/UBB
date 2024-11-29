@@ -1,0 +1,26 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- RecyclerView for Plant List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/plant_item"/>
+
+    <!-- Add Plant Button (Floating and Square) -->
+    <Button
+        android:id="@+id/btn_add_plant"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:elevation="4dp"
+        android:background="@drawable/btn_add_plant"
+        android:textSize="12sp"
+        android:textColor="@android:color/white"/>
+</RelativeLayout>

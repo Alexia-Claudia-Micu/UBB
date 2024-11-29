@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Back Button (Custom) -->
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_back"
+        android:contentDescription="Back"
+        android:layout_gravity="start" />
+
+    <!-- Plant Picture -->
+    <ImageView
+        android:id="@+id/plant_picture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="Plant Picture"
+        android:src="@drawable/default_image" />
+
+    <!-- Plant Type -->
+    <EditText
+        android:id="@+id/plant_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type" />
+
+    <!-- Plant Location -->
+    <EditText
+        android:id="@+id/plant_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Location" />
+
+    <!-- Date Acquired input -->
+    <EditText
+        android:id="@+id/plant_date_acquired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date Acquired"
+        android:focusable="false"
+        android:clickable="true"/>
+
+    <!-- Plant Treatment -->
+    <EditText
+        android:id="@+id/plant_treatment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Treatment" />
+
+    <!-- Last Treated input -->
+    <EditText
+        android:id="@+id/plant_last_treated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last Treated"
+        android:focusable="false"
+        android:clickable="true"/>
+
+    <!-- Plant Notes -->
+    <EditText
+        android:id="@+id/plant_notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Notes" />
+
+    <!-- Mother Plant -->
+    <EditText
+        android:id="@+id/plant_mother"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mother Plant" />
+
+    <!-- Propagations -->
+    <EditText
+        android:id="@+id/plant_propagations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Propagations (comma-separated)" />
+
+    <!-- Save Plant Button -->
+    <Button
+        android:id="@+id/btn_save_plant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Plant"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

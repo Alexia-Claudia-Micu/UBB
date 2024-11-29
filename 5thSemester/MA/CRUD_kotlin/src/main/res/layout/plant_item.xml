@@ -1,0 +1,50 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:gravity="center_vertical">
+
+    <!-- Plant Image -->
+    <ImageView
+        android:id="@+id/plant_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/default_image"
+        android:contentDescription="@string/plant_image"
+        android:scaleType="centerCrop" />
+
+    <!-- Plant Name -->
+    <TextView
+        android:id="@+id/plant_name"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Plant Name"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:maxLines="1" />
+
+    <!-- Plant Location -->
+    <TextView
+        android:id="@+id/plant_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:ellipsize="end"
+        android:maxLines="1" />
+
+    <!-- Delete Button with Garbage Can Icon -->
+    <ImageView
+        android:id="@+id/delete_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_delete"
+        android:contentDescription="@string/delete_plant"
+        android:layout_marginStart="16dp" />
+</LinearLayout>

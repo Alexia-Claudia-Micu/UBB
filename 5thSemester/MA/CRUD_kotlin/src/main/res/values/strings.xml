@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PlantKeeper</string>
+    <string name="delete_plant">Delete Plant</string>
+    <string name="plant_image">Plant Image</string>
+</resources>
