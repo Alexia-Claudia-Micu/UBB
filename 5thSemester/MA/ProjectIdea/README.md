@@ -32,7 +32,11 @@ When the user is offline, the temporary data is taken from the local database.
 The changes persist locally in the database and are synced with the server once the user is back online.
 
 When the application is used offline, all the operations performed store the information locally:
-  the entities created are stored in the local database
-  the read operation is performed on the locally saved entities
-  the update operation goes for the locally saved entities
-  the delete operation is performed on the local database
+  - the entities created are stored in the local database
+  - the read operation is performed on the locally saved entities
+  - the update operation goes for the locally saved entities
+  - the delete operation is performed on the local database
+
+<img src="AddUpdateView.jpeg" alt="img">
+<img src="ListView.jpeg" alt="img">
+
