@@ -30,7 +30,7 @@
 - :horse: [Web Programming](4thSemester/Web)
 
 ## 5<sup>th</sup> Semester
-- :space_invader: [Colective Project](https://github.com/richardtoth603/medical-app-frontend)
+- :space_invader: [Group Project](https://github.com/richardtoth603/medical-app-frontend)
 - :crystal_ball: [LFTC - Formal Languages and Compiler Design](5thSemester/LFTC)
 - :umbrella: [MA - Mobile Applications](5thSemester/MA)
 - :grapes: [PPD - Parallel and Distributed Programming](5thSemester/PPD)
