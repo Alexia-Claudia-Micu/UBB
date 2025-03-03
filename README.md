@@ -42,4 +42,4 @@
 - :zzz: Ethics
 - :gem: [Game Development](6thSemester/GameDev)
 - :anchor: [Numerical Calculus](6thSemester/NumericalCalculus)
-- :cyclone: [SSVV - software Systems Verification and Valdation](6thSemester/SSVV)
+- :cyclone: [SSVV - Software Systems Verification and Valdation](6thSemester/SSVV)
