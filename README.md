@@ -36,3 +36,10 @@
 - :grapes: [PPD - Parallel and Distributed Programming](5thSemester/PPD)
 - :video_game: [RPA - Robotic Process Automation](5thSemester/RPA)
 - :clapper: [VR - Virtual Reality](5thSemester/VR)
+
+## 6<sup>th</sup> Semester
+- :globe_with_meridians: [Design Patterns]
+- :zzz: [Ethics]
+- :gem: [Game Development]
+- :anchor: [Numerical Calculus]
+- :cyclone: [SSVV - software Systems Verification and Valdation]
