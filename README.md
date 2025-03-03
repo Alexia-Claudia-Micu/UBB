@@ -38,8 +38,8 @@
 - :clapper: [VR - Virtual Reality](5thSemester/VR)
 
 ## 6<sup>th</sup> Semester
-- :globe_with_meridians: [Design Patterns]
-- :zzz: [Ethics]
-- :gem: [Game Development]
-- :anchor: [Numerical Calculus]
-- :cyclone: [SSVV - software Systems Verification and Valdation]
+- :globe_with_meridians: [Design Patterns](6thSemester/DesignPatterns)
+- :zzz: Ethics
+- :gem: [Game Development](6thSemester/GameDev)
+- :anchor: [Numerical Calculus](6thSemester/NumericalCalculus)
+- :cyclone: [SSVV - software Systems Verification and Valdation](6thSemester/SSVV)
