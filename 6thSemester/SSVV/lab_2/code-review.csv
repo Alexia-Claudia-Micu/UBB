@@ -1,0 +1,4 @@
+sha,filename,url,lines,title,comment,priority,category,additional,id,private
+"4b825dc642cb6eb9a060e54bf8d69288fbee4904","\src\main\java\console\UI.java","","64:8-66:9","Ui notes","The program relies on functions returning true or false to show the correct execution of a method. It should throw and catch errors instead. (Error Handling)","2","Error Handling","","d590fe3e-1500-4f5c-936c-96712b64a93f","0"
+"4b825dc642cb6eb9a060e54bf8d69288fbee4904","\src\main\java\console\UI.java","","75:8-76:39","Validation","Need validation","1","","","6c2ce2c9-69ad-4c3e-870a-4945fa85d47e","0"
+"4b825dc642cb6eb9a060e54bf8d69288fbee4904","\src\main\java\service\Service.java","","57:0-58:0","Incorrect parameter handling","Function alters function parameter. Should use local variable to prevent unintentional side-effects and improve readability","3","","","0632bcf7-716d-41ba-a4cb-60211e6a09cf","0"
